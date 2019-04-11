@@ -1,0 +1,16 @@
+https://medium.com/@ismailakkila/black-hat-python-encrypt-and-decrypt-with-rsa-cryptography-bd6df84d65bc
+https://stackoverflow.com/questions/42504079/how-do-you-extract-n-and-e-from-a-rsa-public-key-in-python
+https://youtu.be/sYCzu04ftaY
+https://www.youtube.com/watch?v=uaW9xW4LdoA
+https://artkond.com/2017/03/23/pivoting-guide/
+https://subscription.packtpub.com/book/networking_and_servers/9781788995238/6/ch06lvl1sec47/pivoting-via-ssh
+https://www.youtube.com/watch?v=JKrO5WABdoY
+https://www.youtube.com/watch?v=rrLerwKre_c
+https://www.youtube.com/watch?v=RJ1psxnVI84+
+https://www.youtube.com/watch?v=RJ1psxnVI84
+https://www.youtube.com/watch?v=RJ1psxnVI84
+https://www.youtube.com/watch?v=nuF5_vpKiuY
+https://www.youtube.com/watch?v=0VJyfJzbPE4
+https://www.youtube.com/watch?v=iiimeROlNzQ
+https://youtu.be/82S8wFSypB4
+

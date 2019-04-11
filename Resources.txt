@@ -1,0 +1,29 @@
+Cheat sheets:
+All
+https://highon.coffee/blog/penetration-testing-tools-cheat-sheet/
+Log-analysis
+https://media.licdn.com/dms/image/C5622AQGT6Pm3Wa2EyA/feedshare-shrink_8192/0?e=1554483600&v=beta&t=3miFPDCPnU7XhGHO95Kxl4mDLauWXw_o8kaXWAIyiIo
+Reverse shells
+http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
+SQL Injection
+http://pentestmonkey.net/category/cheat-sheet/sql-injection
+SSH
+http://pentestmonkey.net/cheat-sheet/ssh-cheat-sheet
+Password cracking (John the ripper)
+http://pentestmonkey.net/cheat-sheet/john-the-ripper-hash-formats
+Privilege escaltion
+https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/
+https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/
+File transfer using Netcat
+https://nakkaya.com/2009/04/15/using-netcat-for-file-transfers/
+
+Blogs
+http://pentestmonkey.net/category/blog
+
+CTF writeups:
+
+https://medium.com/bugbountywriteup/tagged/ctf
+https://medium.com/bugbountywriteup/tagged/ctf
+
+
+
